@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Swap Demo</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e90ff;
+    background-image:
+        linear-gradient(90deg, rgba(0,0,0,0.15) 1px, transparent 1px),
+        linear-gradient(rgba(0,0,0,0.15) 1px, transparent 1px);
+    background-size: 25px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.25);
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: #0066ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #004ec2;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    width: 450px;
+}
+
+.close-btn {
+    margin-top: 20px;
+    background: #0066ff;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Swap Demo</h2>
+    <button onclick="connectWallet()">Connect Wallet</button>
+</div>
+
+<div class="modal" id="complianceModal">
+    <div class="modal-content">
+        <h3>Wallet Address Screening</h3>
+        <p>
+        Blockchain analytic firms, such as Chainalysis, are currently checking your wallet address against the Office of Foreign Assets Control (OFAC) sanctions list, as well as datasets that flag wallets associated with
+        ransomware, hacks, fraud, terrorist financing, or other illicit activity
+        </p>
+
+        <p>
+        This screening is implemented via API-based risk scoring and sanctions monitoring.
+        It is not identity-based KYC. It is address-based screening. If an address is determined
+        to be a sanctioned entity, it is blocked from further interacting with the interface.
+        </p>
+
+        <button class="close-btn" onclick="proceed()">Continue</button>
+    </div>
+</div>
+
+<script>
+function connectWallet() {
+    document.getElementById("complianceModal").style.display = "flex";
+}
+
+function proceed() {
+    window.location.href = "swap.html";
+}
+</script>
+
+</body>
+</html>
